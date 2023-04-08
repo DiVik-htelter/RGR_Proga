@@ -1,11 +1,11 @@
 ﻿#include <iostream>
 #include <Windows.h>
-#include <math.h>
+//#include <math.h>
 //#include <stdio.h>
 #include <conio.h>
 #include <string>
 //#include <stdio.h>
-#include <cmath>
+//#include <cmath>
 ///Менюшка разделена по пунктам
 ///Она переключается как стрелосками там и колесиком мыши
 /// нажатие левой кнопки мыши = энтеру
@@ -25,7 +25,6 @@ void gotoxy(int xpos, int ypos)
     scrn.X = xpos; scrn.Y = ypos;
     SetConsoleCursorPosition(hOuput, scrn);
 }//Moving carriage to coordinates (x,y)
-
 
 class Loading_and_others_functions
 {
@@ -67,6 +66,7 @@ public:
         printf("\b-");
         Sleep(sleepTime);
     }
+    
     void Loading_line(int sleepTime) 
     {
         ///
@@ -79,7 +79,6 @@ private:
 
 };
 
-
     class Menu
     {
     private:
@@ -90,7 +89,6 @@ private:
         int Punckt = 0; // пункты 1-5
         void draw(int num)
         {
-    
             switch (num)
             {
             case 80: // стрелка вниз
@@ -128,12 +126,12 @@ private:
             if (Punckt == 6) printf("Выход\n");
             else             printf("Выход\n");
     
-    
+            int time = 60; // в милисекундах
            // выводит крутящуюся шнягу у пункта
             if (Punckt == 1) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 6); // перемещаемся к 1 пункту и на 2 символа левее
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" "); // это надо для того что бы курсор все таки переместился, иначе он остается на месте
             }
@@ -141,7 +139,7 @@ private:
             else if (Punckt == 2) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 5); // перемещаемся к 2 пункту и на 2 символа левее            
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" ");
             }
@@ -149,7 +147,7 @@ private:
             else if (Punckt == 3) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 4); 
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" ");
             }
@@ -157,7 +155,7 @@ private:
             else if (Punckt == 4) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 3); 
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" ");
             }
@@ -165,7 +163,7 @@ private:
             else if (Punckt == 5) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 2); 
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" "); 
             }
@@ -173,7 +171,7 @@ private:
             else if (Punckt == 6) 
             {
                 gotoxy(With / 2 - 13, Hight / 2 - 1); // перемещаемся к последнему пункту и на 2 символа левее
-                l.Loading_spinning_stick(70);
+                l.Loading_spinning_stick(time);
                 gotoxy(0, 0);
                 printf(" ");
             }
@@ -206,68 +204,7 @@ private:
         const double a = -Pi; // от куда
         const double b = Pi; // до куда
         double razn = 2 * Pi / n; // длинна самой итерации
-      /* void draw() // функция воспроизвадимая в методе main 
-        {
-            system("cls");
-            printf("Тут могла быть ваша таблица\n\n");
-            for (double i = a; i < b; i += razn) // i это собственно х который мы должны подставить в уравнение
-            {
-                stolb1[count] = count_V_1(i);
-                stolb2[count] = count_V_2(i);
-                count++;
-                //printf("%4.3lg %4.3lg\n",count_V_1(i),count_V_2(i));
-               
-                // потом отоюрать индексы минимума и максимума
-                // и при выводе на экран в цикле поменять цвет
-               
-                // а еще нормально отрисовать таблицу, или спиздить откуда то
-            }
-            for (int i = 0; i < n; i++) 
-            {
-                if (stolb1[i] <= min1)
-                    min1 = stolb1[i];
-                if (stolb1[i] >= max1)
-                    max1 = stolb1[i];
-                
-                if (stolb2[i] <= min2)
-                    min2 = stolb2[i];
-                if (stolb2[i] >= max2)
-                    max2 = stolb2[i];
-            }
-            for (int i = 0; i < n; i++)  // просто перекрашивает минимум и максимум в таблице в разные цвета
-            {
-                if (stolb1[i] == min1) 
-                {
-                    //system("color 3");
-                    printf("\x1b[32m%4.3lg\x1b[0m ", stolb1[i]);
-                    //system("color 2");
-                }
-                else if (stolb1[i] == max1) 
-                {
-                    //system("color 1");
-                    printf("\x1b[31m%4.3lg\x1b[0m ", stolb1[i]);
-                    //system("color 2");
-                }
-                else
-                    printf("%4.3lg ", stolb1[i]);
-                if (stolb2[i] == min2)
-                {
-                    //system("color 3");
-                    printf("\x1b[32m%4.3lg\x1b[0m\n", stolb2[i]);
-                    //system("color 2");
-                }
-                else if (stolb2[i] == max2)
-                {
-                    //system("color 1");
-                    printf("\x1b[31m%4.3lg\x1b[0m\n", stolb2[i]);
-                    //system("color 2");
-                }
-                else
-                    printf("%4.3lg\n", stolb2[i]);
-
-            }
-        }
-        */
+     
         void tablica() // отрисовка таблицы
         {
             system("cls");
@@ -495,8 +432,7 @@ int main()
     menu.draw(menu.Num);
     
     while (true)
-    {
-       
+    {       
        menu.Num = _getch();
        menu.draw(menu.Num);        
         if (menu.Num == 13) // нажатие энтера
