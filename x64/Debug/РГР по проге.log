@@ -1,10 +1,10 @@
 ﻿  РГР по проге.cpp
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(435,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(435,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(436,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(436,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(437,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(437,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(438,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(438,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(368,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(368,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(369,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(369,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(370,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(370,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(371,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(371,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
   РГР по проге.vcxproj -> C:\Users\Fabutnm\source\repos\РГР по проге\x64\Debug\РГР по проге.exe
