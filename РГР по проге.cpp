@@ -12,7 +12,6 @@
 /// эскейп = выход или назад
 
 using namespace std;
-long double e = 2.71828182845904523536; 
 double Pi = 3.1415926535; 
 HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 const int Hight = 30; // Высота консоли
@@ -74,9 +73,6 @@ public:
         ///
          
     }
-    
-private:
-
 };
 
     class Menu
@@ -197,7 +193,7 @@ private:
         }
 
         double count_V_2(double num) { // второе уравнение
-            return pow(e, -(num + 5.0));
+            return pow(exp(1), -(num + 5.0));
         }
     
         const int n = 20; // колличество итераций
@@ -377,15 +373,32 @@ private:
         }
     };
     class Yravn //уравнение 3
-    {
+    { // 0.5 + cos(x) -2x*sin(x) = 0
+      // интервал а и б рассчитать самостоятельно
     private:
         // тута переменные
+        double e = 0.001, a = -100, b = 100; // e - точность [a,b] отрезок в котором проводим табуляцию
+        double x[100]; // сначала заполняем массив значениями а потом выводим
+        int count = 0; // счетчик
+        
+        double f(double x) // функция 6 вариант
+        {
+            return 0.5 + cos(x) - 2 * x * sin(x);
+        }
     public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
             system("cls");
-            printf("Тут могло быть ваше уравнение");
+           // printf("Тут могло быть ваше уравнение");
+            printf("Решение уравнения\nОтрезок [-100,100]\nС точностью: 0.001\nКорни уравнгения:\n\n\n");
+            for (double i = a; i < b; i += e)  // в отрезке от а до б с точностью е находятся корни функции
+                if (abs(f(i)) / e < 10)
+                    x[count] = i, count++;
+            for (int i = 0; i < count; i++)
+                if (i % 2 == 0) printf("%3.3f\t", x[i]);
+                else printf("%3.3f\n", x[i]);
+            //printf("%f", x);
         }
     };
     class Integral // интеграл 4
@@ -409,7 +422,21 @@ private:
         void draw()
         {
             system("cls");
-            printf("Тут могла быть ваша информация об авторе");
+            //printf("Тут могла быть ваша информация об авторе");
+            gotoxy(5, 1);
+            printf("Выполнил расчетно графическую работу");
+            gotoxy(5, 2);
+            printf("Студент группы ПИН-221");
+            gotoxy(5, 3);
+            printf("Кафедры Автоматизированные системы обработки информации и устройств");
+            gotoxy(5, 4);
+            printf("Факультета информационных технологий и компьютерных систем");
+            gotoxy(5, 5);
+            printf("Омского Государственного технического университета");
+            gotoxy(5, 6);
+            printf("Шадчнев Георгий Алексеевич");
+            gotoxy(5, 8);
+            printf("Дата выполнения работы: с 01.03.23 по 15.04.23");
         }
     };
 
@@ -430,7 +457,6 @@ int main()
     gotoxy(60,15);
     IDontKnow.Loading_title(3,70);
     menu.draw(menu.Num);
-    
     while (true)
     {       
        menu.Num = _getch();
