@@ -405,12 +405,52 @@ public:
     {
     private:
         // тута переменные
+        double f(double x) {
+            return cos(x)/(x*x+1);
+        }// Function of Integral
+        double trapezoidalIntegral(double a, double b, int n) {
+            const double width = (b - a) / n;
+            double trapezoidal_integral = 0;
+            for (int i = 0; i < n; i++) {
+                const double x1 = a + i * width;
+                const double x2 = a + (i + 1) * width;
+
+                trapezoidal_integral += 0.5 * (x2 - x1) * (f(x1) + f(x2));
+            }
+            return trapezoidal_integral;
+        } //Solving the Integral by the trapezoid method    
+        double rectangelIntegral(double a, double b, double n) {
+            double h = (b - a) / n;
+            double sum = f(a) + f(b);
+            int k;
+            for (int i = 1; i <= n - 1; i++) {
+                k = 2 + 2 * (i % 2);
+                sum += k * f(a + i * h);
+            }
+            sum *= h / 3;
+            return sum;
+        } // Sympson's method // not need
     public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
             system("cls");
-            printf("Тут мог быть ваш интеграл");
+            //printf("Тут мог быть ваш интеграл");
+
+            gotoxy(6, 1);
+            printf("Решение определенного интеграла");
+            gotoxy(4, 3);
+            printf("Предложенный интеграл: cos(x) / (x*x+1) ");
+            gotoxy(4, 4);
+            printf("Верхний и нижний пределы соответственно 5 и 2");         
+            gotoxy(4, 5);
+            printf("Цена приращения: 3/200");
+            gotoxy(4, 6);
+            printf("Точность определения: 0.001");
+            gotoxy(4, 7);
+            printf("Результат, методом трапеций: %.5f", trapezoidalIntegral(2, 5, 200));
+            gotoxy(4, 8);
+            printf("Результат, методом прямоугольников: %.5f", rectangelIntegral(2, 5, 200));
         }
     };
     class Author // автор 5
