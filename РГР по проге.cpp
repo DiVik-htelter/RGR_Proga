@@ -25,6 +25,15 @@ void gotoxy(int xpos, int ypos)
     SetConsoleCursorPosition(hOuput, scrn);
 }//Moving carriage to coordinates (x,y)
 
+void ConsoleCursorVisible(bool show, short size) // единственная функция которая реально убирает курсор
+{
+    CONSOLE_CURSOR_INFO structCursorInfo;
+    GetConsoleCursorInfo(hStdOut, &structCursorInfo);
+    structCursorInfo.bVisible = show;
+    structCursorInfo.dwSize = size;
+    SetConsoleCursorInfo(hStdOut, &structCursorInfo);
+} //Visible of Console Cursor
+
 class Loading_and_others_functions
 {
 public:
@@ -485,6 +494,7 @@ public:
 int main()
 {
     //system("color 2");
+    ConsoleCursorVisible(FALSE, 2);
     setlocale(LC_ALL, "rus");
     ShowCursor(FALSE);
     Loading_and_others_functions IDontKnow;
@@ -495,7 +505,7 @@ int main()
     Integral integ;
     Author author;
     gotoxy(60,15);
-    IDontKnow.Loading_title(3,70);
+    IDontKnow.Loading_title(3,70); // чёто типо анимации
     menu.draw(menu.Num);
     while (true)
     {       
