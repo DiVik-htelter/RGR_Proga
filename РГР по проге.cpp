@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define CLS system("cls")
+#include <iostream>
 #include <Windows.h>
 //#include <math.h>
 //#include <stdio.h>
@@ -108,7 +109,7 @@ public:
                 break;
             }
             // рисуем менюшку
-            system("cls");
+            CLS;
             system("color 2");
             //printf("\n\n\n\n\n\n\n\n\n\n");        
             // выводит все пункты меню
@@ -212,8 +213,7 @@ public:
      
         void tablica() // отрисовка таблицы
         {
-            system("cls");
-            system("color 4"); //Color of text
+            system("color 2"); //Color of text
             int x2 = 5, y2 = 0; //x2,y2 - coordinates of position the table
             double F1[20], F2[20], x, x1[20], minF1 = INT_MAX, maxF1 = INT_MIN, minF2 = INT_MAX, maxF2 = INT_MIN;
             
@@ -241,43 +241,43 @@ public:
 
             for (int i = 1; i <= n; i++) {
                 gotoxy(x2, y2 + 2 + i);
-                SetConsoleTextAttribute(hStdOut, 4);
+                SetConsoleTextAttribute(hStdOut, 2);
                 printf("|%3d|%8.3f|", i, x1[i - 1]);
                 if (F1[i - 1] == minF1) {
                     SetConsoleTextAttribute(hStdOut, 1);
                     printf("%8.4f", F1[i - 1]);
                 }
                 else if (F1[i - 1] == maxF1) {
-                    SetConsoleTextAttribute(hStdOut, 2);
+                    SetConsoleTextAttribute(hStdOut, 4);
                     printf("%8.4f", F1[i - 1]);
                 }
                 else
                 {
-                    SetConsoleTextAttribute(hStdOut, 4);
+                    SetConsoleTextAttribute(hStdOut, 2);
                     printf("%8.4f", F1[i - 1]);
                 }
-                SetConsoleTextAttribute(hStdOut, 4);
+                SetConsoleTextAttribute(hStdOut, 2);
                 printf("|");
                 if (F2[i - 1] == minF2) {
                     SetConsoleTextAttribute(hStdOut, 1);
                     printf("%8.4f", F2[i - 1]);
                 }
                 else if (F2[i - 1] == maxF2) {
-                    SetConsoleTextAttribute(hStdOut, 2);
+                    SetConsoleTextAttribute(hStdOut, 4);
                     printf("%8.4f", F2[i - 1]);
                 }
                 else
                 {
                     if (F2[i - 1] == -INFINITY) {
-                        SetConsoleTextAttribute(hStdOut, 4);
+                        SetConsoleTextAttribute(hStdOut, 2);
                         printf("%8s", "ERROR");
                     }
                     else {
-                        SetConsoleTextAttribute(hStdOut, 4);
+                        SetConsoleTextAttribute(hStdOut, 2);
                         printf("%8.4f", F2[i - 1]);
                     }
                 }
-                SetConsoleTextAttribute(hStdOut, 4);
+                SetConsoleTextAttribute(hStdOut, 2);
                 printf("|\n");
             }
             gotoxy(x2, y2 + 3 + n);
@@ -353,7 +353,6 @@ public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
-            system("cls");
             //printf("Тут мог быть ваш график");
             HWND hwn = GetConsoleWindow();
             COLORREF lineColor = RGB(0, 0, 0);
@@ -398,16 +397,19 @@ public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
-            system("cls");
+                       
            // printf("Тут могло быть ваше уравнение");
-            printf("Решение уравнения\nОтрезок [-100,100]\nС точностью: 0.001\nКорни уравнгения:\n\n\n");
+            printf("\tРешение уравнения\n\tОтрезок [-100,100]\n\tС точностью: 0.001\n\tКорни уравнгения:\n\n\n");
             for (double i = a; i < b; i += e)  // в отрезке от а до б с точностью е находятся корни функции
                 if (abs(f(i)) / e < 10)
                     x[count] = i, count++;
-            for (int i = 0; i < count; i++)
-                if (i % 2 == 0) printf("%3.3f\t", x[i]);
+                        
+            for (int i = 0; i < count; i++)             
+                if (i % 2 == 0) printf("\t%3.03f\t", x[i]);
                 else printf("%3.3f\n", x[i]);
+            
             //printf("%f", x);
+            count = 0;
         }
     };
     class Integral // интеграл 4
@@ -443,7 +445,6 @@ public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
-            system("cls");
             //printf("Тут мог быть ваш интеграл");
 
             gotoxy(6, 1);
@@ -470,7 +471,6 @@ public:
         // тута главная функция или вывода или просто подсчета
         void draw()
         {
-            system("cls");
             //printf("Тут могла быть ваша информация об авторе");
             gotoxy(5, 1);
             printf("Выполнил расчетно графическую работу");
@@ -524,31 +524,31 @@ int main()
             case 2:
                 //printf("2");
                 // функция графикa
-                
+                CLS;
                 graf.draw();
                 break;
             case 3:
                 //printf("3");
                 // функция уравнения
-                
+                CLS;
                 yravn.draw();
                 break;
             case 4:
                 //printf("4");
                 // функция интеграла
-                
+                CLS;
                 integ.draw();
                 break;
             case 5:
                 //printf("5");
                 // функция автора
-                
+                CLS;
                 author.draw();
                 break;
             case 6:
                 //printf("5");
                 // функция автора
-
+                CLS;
                 exit(0);
                 break;
             default:
