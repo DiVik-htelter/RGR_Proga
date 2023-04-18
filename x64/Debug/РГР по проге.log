@@ -1,17 +1,17 @@
 ﻿  РГР по проге.cpp
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(383,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(383,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(384,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(384,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(385,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(385,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(386,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(386,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(490,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(492,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(494,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(496,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(498,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(500,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(502,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(483,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(483,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(484,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(484,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(485,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(485,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(486,48): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(486,33): warning C4244: аргумент: преобразование "long double" в "int", возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(590,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(592,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(594,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(596,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(598,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(600,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Fabutnm\source\repos\РГР по проге\РГР по проге.cpp(602,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
   РГР по проге.vcxproj -> C:\Users\Fabutnm\source\repos\РГР по проге\x64\Debug\РГР по проге.exe

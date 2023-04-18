@@ -15,6 +15,8 @@
 using namespace std;
 double Pi = 3.1415926535; 
 HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+HWND hwnd = GetConsoleWindow(); //Descripter of Window
+HDC dc = GetDC(hwnd);//Device context - for drawing
 const int Hight = 30; // Высота консоли
 const int With = 120; // Ширина консоли
 
@@ -37,6 +39,97 @@ void ConsoleCursorVisible(bool show, short size) // единственная ф�
 
 class Loading_and_others_functions
 {
+private:
+    void scan(int s = 2, int PointWidth2 = 10)
+    {
+        ConsoleCursorVisible(FALSE, 1);
+        int PointWidth1 = 0, PointHigh1 = 0, PointHigh2 = 20;
+        int x = 0, y = 0, N = 1450, R = 63, G = 6, B = 70; // RGB is color, x,y - coordination
+        COLORREF rgb = RGB(R, G, B);
+        for (int i = 0; i < N; i += s)
+            for (int j = 0; j < N; j += s)
+            {
+                //Sleep(1);
+                if (true)
+                {
+                    SelectObject(dc, GetStockObject(DC_BRUSH));
+                    SetDCBrushColor(dc, rgb);
+                    Ellipse(dc, PointWidth1 + j, PointHigh1 + i - j, PointWidth2 + j, PointHigh2 + i - j);
+                }
+            }
+    }
+
+    void scanG(int s = 2, int PointWidth2 = 10)
+    {
+        ConsoleCursorVisible(FALSE, 1);
+        int PointWidth1 = 0, PointHigh1 = 0, PointHigh2 = 20;
+        int x = 0, y = 0, N = 1450, R = 0, G = 255, B = 0; // RGB is color, x,y - coordination
+        COLORREF rgb = RGB(R,G,B);
+        for (int i = 0; i < N; i += s)
+            for (int j = 0; j < N; j += s)
+            {
+                //Sleep(1);
+                if (true)
+                {
+                    SelectObject(dc, GetStockObject(DC_BRUSH));
+                    SetDCBrushColor(dc, rgb);
+                    Ellipse(dc, PointWidth1 + j, PointHigh1 + i - j, PointWidth2 + j, PointHigh2 + i - j);
+                }
+            }
+    }
+
+    void pizzaDraw(int r = 20000, int sleepTime = 25)
+    {
+        ConsoleCursorVisible(FALSE, 1); // на всякий пусть будет
+        int PointWidth1 = 0, PointHigh1 = 0,   //(х,у) верхнего левого угла
+            PointWidth2 = 10, PointHigh2 = 10, //(х,у) нижнего правого угла
+            s = 7, // ход переменных в цикле
+            x = 0, y = 0, // пусть будут
+            N = 1450 / 2, // размер окна?
+            R = 63, G = 15, B = 80, // RGB is color, x,y - coordination
+            count = 220, // нужен, для смещения круга от центра осей к центру окна по всем координатам
+            countOnlyX = 250; //смещения круга только по Х
+        COLORREF rgb = RGB(R, G, B);
+
+        for (int i = 0; i < N; i += s)
+            for (int j = 0; j < N; j += s)
+            {
+                //Sleep(1);
+                if (i * i + j * j <= r && i * i + j * j >= r - 8000)
+                {
+                    Sleep(sleepTime);
+
+                    SelectObject(dc, GetStockObject(DC_BRUSH));
+                    SetDCBrushColor(dc, rgb);
+                    Ellipse(dc,  // правая нижняя четверть
+                        i + count + PointWidth1 + countOnlyX,  //(х,у) верхнего левого угла
+                        j + count + PointHigh1,
+                        i + count + PointWidth2 + countOnlyX,  //(х,у) нижнего правого угла
+                        j + count + PointHigh2);
+                    Ellipse(dc, // левая верхняя четверть
+                        -i + count + countOnlyX + PointWidth1,	//(х,у) верхнего левого угла
+                        -j + count + PointHigh1,
+                        -i + count + PointWidth2 + countOnlyX,	//(х,у) нижнего правого угла
+                        -j + count + PointHigh2);
+                    Ellipse(dc, // хз
+                        i + count + PointWidth1 + countOnlyX,	//(х,у) верхнего левого угла
+                        -j + count + PointHigh1,
+                        i + count + PointWidth2 + countOnlyX,	//(х,у) нижнего правого угла
+                        -j + count + PointHigh2);
+                    Ellipse(dc, // не помню
+                        -i + count + PointWidth1 + countOnlyX,	//(х,у) верхнего левого угла
+                        j + count + PointHigh1,
+                        -i + count + PointWidth2 + countOnlyX,	//(х,у) нижнего правого угла
+                        j + count + PointHigh2);
+                    //тут 4 почти одинаковых метода потому что 1 отрисовывает только четверть круга, 
+                    //наверное можно сделать так,
+                    //что бы один метод все сделал, но мне некогда сейчас это делать
+                }
+            }
+    }
+
+    
+
 public: // надо написать нормальную графическую заставку
     void Loading_title(int iteration, int sleepTime) // Надпись "Loading..." которая меняет регистр буквв течении sleepTime и iteration раз
     {
@@ -75,7 +168,14 @@ public: // надо написать нормальную графическую
         printf("\b-");
         Sleep(sleepTime);
     }
-    
+    void NotIdealFunction()
+    {
+        scan(3, 10);
+        pizzaDraw();
+        for (int i = 20000; i <= 72000; i += 8000)
+            pizzaDraw(i, 10);
+        scanG(1, 10);
+    }
     void Loading_line(int sleepTime) 
     {
         ///
@@ -511,16 +611,16 @@ int main()
     //system("color 2");
     ConsoleCursorVisible(FALSE, 2);
     setlocale(LC_ALL, "rus");
-    ShowCursor(FALSE);
     Loading_and_others_functions IDontKnow;
     Menu menu;
     Table tabl;
     Graf graf;
     Yravn yravn;
     Integral integ;
-    Author author;
+    Author author;   
     gotoxy(60,15);
     IDontKnow.Loading_title(3,70); // чёто типо анимации
+    IDontKnow.NotIdealFunction();
     menu.draw(menu.Num);
     while (true)
     {       
